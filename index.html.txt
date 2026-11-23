@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Грузоперевозки и грузчики — Быстро и надежно</title>
+    <style>
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: #1a2a3a;
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f5a623;
+        }
+
+        .phone-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5a623;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .phone-header:hover {
+            color: #fff;
+        }
+
+        /* Главный баннер */
+        .hero {
+            background: linear-gradient(135deg, #1e3c5c 0%, #2c5f8a 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f5a623;
+            color: #1a2a3a;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.6);
+        }
+
+        .btn-phone {
+            background: #fff;
+            color: #1a2a3a;
+            margin-left: 15px;
+        }
+
+        .btn-phone:hover {
+            background: #e0e0e0;
+        }
+
+        /* Преимущества */
+        .features {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #1a2a3a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            background: #f4f7fb;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a2a3a;
+        }
+
+        .feature-card p {
+            color: #555;
+        }
+
+        /* Цены */
+        .pricing {
+            padding: 60px 0;
+            background: #eef2f7;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #1a2a3a;
+        }
+
+        .pricing-card {
+            background: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 6px solid #f5a623;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #1a2a3a;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a2a3a;
+            margin-bottom: 10px;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-card ul li::before {
+            content: "✅";
+            margin-right: 10px;
+        }
+
+        .note {
+            font-size: 0.95rem;
+            color: #777;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Контакты */
+        .contacts {
+            padding: 60px 0;
+            background: #1a2a3a;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contacts h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .contacts p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .phone-big {
+            display: inline-block;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f5a623;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+
+        .phone-big:hover {
+            color: #fff;
+        }
+
+        .contacts .sub {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Подвал */
+        footer {
+            background: #0f1a24;
+            color: #aaa;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 280px;
+            }
+
+            .btn-phone {
+                margin-left: 0;
+            }
+
+            .phone-big {
+                font-size: 1.6rem;
+            }
+
+            .pricing-card {
+                padding: 25px;
+            }
+
+            .price {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Груз<span>Мастер</span></div>
+            <a href="tel:89519290215" class="phone-header">📞 8 (951) 929-02-15</a>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <h1>Грузоперевозки и профессиональные грузчики</h1>
+            <p>Быстро, аккуратно и по доступной цене. Работаем с любыми объёмами.</p>
+            <a href="tel:89519290215" class="btn">Позвонить сейчас</a>
+            <a href="#pricing" class="btn btn-phone">Узнать цены</a>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <h2>Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Свой транспорт</h3>
+                    <p>Газели и грузовики разной вместимости. Подберём под ваш груз.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>Опытные грузчики</h3>
+                    <p>Бережно упакуем, поднимем и занесём. Работаем без повреждений.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Быстрая подача</h3>
+                    <p>Приедем в течение 30–60 минут после заказа. Работаем ежедневно.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Честная цена</h3>
+                    <p>Без скрытых доплат. Стоимость известна заранее.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цены -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Стоимость услуг</h2>
+            <div class="pricing-card">
+                <h3>Услуги грузчика</h3>
+                <div class="price">600–650 <span>₽ / час</span></div>
+                <p style="color: #666; margin-bottom: 10px;">Итоговая цена зависит от веса и характера груза</p>
+                <ul>
+                    <li>Погрузка / разгрузка</li>
+                    <li>Подъём на этаж</li>
+                    <li>Упаковка и бережная переноска</li>
+                    <li>Работа с крупногабаритом</li>
+                </ul>
+                <a href="tel:89519290215" class="btn" style="margin-top: 10px;">Заказать грузчика</a>
+                <p class="note">* Точную стоимость уточняйте по телефону — назовём цену сразу.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contacts">
+        <div class="container">
+            <h2>Остались вопросы?</h2>
+            <p>Звоните — ответим на все вопросы и рассчитаем стоимость за 2 минуты.</p>
+            <a href="tel:89519290215" class="phone-big">8 (951) 929-02-15</a>
+            <p class="sub">Ежедневно с 8:00 до 22:00</p>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            &copy; 2026 ГрузМастер — Грузоперевозки и грузчики. Все права защищены.
+        </div>
+    </footer>
+
+</body>
+</html>
